@@ -13,6 +13,8 @@ from pyspark.sql import Row
 
 monologue_summary_table = "llm_agents_catalog.pdf_to_podcast.monologue_summary"
 raw_outline_output_table = "llm_agents_catalog.pdf_to_podcast.monologue_raw_outline"
+endpoint_host = "https://adb-984752964297111.11.azuredatabricks.net"
+endpoint_name = "databricks-meta-llama-3-1-405b-instruct"
 
 # COMMAND ----------
 
@@ -33,7 +35,7 @@ prompt = template.render(
         documents="\n\n".join(documents),
     )
 
-raw_outline = score_model(prompt, "https://adb-984752964297111.11.azuredatabricks.net", "databricks-meta-llama-3-1-405b-instruct", True).json()["choices"][0]["message"]["content"]
+raw_outline = score_model(prompt, endpoint_host, endpoint_name, True).json()["choices"][0]["message"]["content"]
 
 # COMMAND ----------
 

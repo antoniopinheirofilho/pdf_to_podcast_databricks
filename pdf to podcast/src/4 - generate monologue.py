@@ -29,6 +29,8 @@ markdowns_table = "llm_agents_catalog.pdf_to_podcast.markdowns"
 speaker_1_name="Alex"
 guide="Focus on the company's earnings and the key points driving it's growth"
 monolog_output_table = "llm_agents_catalog.pdf_to_podcast.monologue"
+endpoint_host = "https://adb-984752964297111.11.azuredatabricks.net"
+endpoint_name = "databricks-meta-llama-3-1-405b-instruct"
 
 # COMMAND ----------
 
@@ -57,7 +59,7 @@ prompt = template.render(
         speaker_1_name=speaker_1_name,
     )
 
-monologue = score_model(prompt, "https://adb-984752964297111.11.azuredatabricks.net", "databricks-meta-llama-3-1-405b-instruct", True).json()["choices"][0]["message"]["content"]
+monologue = score_model(prompt, endpoint_host, endpoint_name, True).json()["choices"][0]["message"]["content"]
 
 # COMMAND ----------
 
@@ -71,7 +73,7 @@ prompt = template.render(
         schema=json.dumps(schema, indent=2),
     )
 
-conversation = score_model(prompt, "https://adb-984752964297111.11.azuredatabricks.net", "databricks-meta-llama-3-1-405b-instruct", True).json()["choices"][0]["message"]["content"]
+conversation = score_model(prompt, endpoint_host, endpoint_name, True).json()["choices"][0]["message"]["content"]
 
 if conversation.startswith("```") and conversation.endswith("```"):
   conversation = conversation[3:-3]
