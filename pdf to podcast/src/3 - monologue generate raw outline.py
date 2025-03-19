@@ -13,7 +13,7 @@ from pyspark.sql import Row
 
 monologue_summary_table = "llm_agents_catalog.pdf_to_podcast.monologue_summary"
 raw_outline_output_table = "llm_agents_catalog.pdf_to_podcast.monologue_raw_outline"
-endpoint_host = "https://adb-984752964297111.11.azuredatabricks.net"
+endpoint_host = ""
 endpoint_name = "databricks-meta-llama-3-1-405b-instruct"
 
 # COMMAND ----------
