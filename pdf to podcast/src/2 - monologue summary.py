@@ -9,7 +9,7 @@
 
 markdowns_table = "llm_agents_catalog.pdf_to_podcast.markdowns"
 summary_output_table = "llm_agents_catalog.pdf_to_podcast.monologue_summary"
-endpoint_host = "https://adb-984752964297111.11.azuredatabricks.net"
+endpoint_host = ""
 endpoint_name = "databricks-meta-llama-3-1-405b-instruct"
 
 # COMMAND ----------
